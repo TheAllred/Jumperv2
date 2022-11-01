@@ -11,11 +11,14 @@ namespace Jumper // Note: actual namespace depends on the project name.
 
         public director()
         {
+            // when the game starts, pick a new word.
             wordManager1.generateHint();
         }
 
         public void guessingLoop()
         {
+
+            // Repeat the loop until the game ends
             while (solved == false)
             {
 

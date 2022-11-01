@@ -13,12 +13,12 @@ namespace Jumper // Note: actual namespace depends on the project name.
 
         List<string> DashList = new List<string>();
         char[] letterList = { };
-
+// pick a random word each time a new type of this class is called
         public wordManager()
         {
             _hiddenWord = wordList.generateRandomWord();
         }
-
+// create a list of dashes as long as the hidden word
         public void generateHint()
         {
             for (int i = 0; i < _hiddenWord.Length; i++)
@@ -26,6 +26,7 @@ namespace Jumper // Note: actual namespace depends on the project name.
                 DashList.Add("_ ");
             }
         }
+        // print the list of dashes to show the player the list 
         public void displayHint()
         {
             foreach (string dash in DashList)
@@ -33,6 +34,8 @@ namespace Jumper // Note: actual namespace depends on the project name.
             terminalService1.WriteLineText(" ");
 
         }
+        // Handle the input for the player to guess letters. 
+        // If correct, replace dash in hint with correct letter, if wrong remove a line from the parachute 
         public void makeAGuess()
         {
             string letter = "";
@@ -80,7 +83,7 @@ namespace Jumper // Note: actual namespace depends on the project name.
 
 
         }
-
+        // Check parachute and word hint for win conditions. call win/loss functions
         public bool checkIfSolved()
         {
 
